@@ -7,6 +7,12 @@
 # General application configuration
 use Mix.Config
 
+config :fizzbuzz_phoenix, FizzBuzz.Repo,
+  database: "fizzbuzz_phoenix_repo",
+  username: "user",
+  password: "pass",
+  hostname: "localhost"
+
 # Configures the endpoint
 config :fizzbuzz_phoenix, FizzbuzzPhoenixWeb.Endpoint,
   url: [host: "localhost"],
@@ -21,6 +27,9 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :fizzbuzz_phoenix,
+       ecto_repos: [FizzBuzz.Repo]
 
 
 # Import environment specific config. This must remain at the bottom

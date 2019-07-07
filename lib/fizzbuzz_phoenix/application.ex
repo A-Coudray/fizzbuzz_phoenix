@@ -9,9 +9,9 @@ defmodule FizzbuzzPhoenix.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      FizzbuzzPhoenixWeb.Endpoint
+      FizzbuzzPhoenixWeb.Endpoint,
       # Starts a worker by calling: FizzbuzzPhoenix.Worker.start_link(arg)
-      # {FizzbuzzPhoenix.Worker, arg},
+     {FizzBuzz.Repo, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
