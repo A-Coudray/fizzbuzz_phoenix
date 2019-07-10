@@ -9,8 +9,8 @@ use Mix.Config
 
 config :fizzbuzz_phoenix, FizzBuzz.Repo,
   database: "fizzbuzz_phoenix_repo",
-  username: "user",
-  password: "pass",
+  username: "postgres",
+  password: "postgre",
   hostname: "localhost"
 
 # Configures the endpoint
