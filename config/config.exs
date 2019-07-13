@@ -32,7 +32,7 @@ config :fizzbuzz_phoenix,
        ecto_repos: [FizzBuzz.Repo]
 
 config :scrivener_html,
-  routes_helper: FizzbuzzPhoenixWeb.Router.Router.Helpers,
+  routes_helper: Routes,
   view_style: :bootstrap
 
 

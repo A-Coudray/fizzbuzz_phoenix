@@ -1,8 +1,11 @@
 defmodule FizzbuzzPhoenixWeb.SaveFavouriteChannel do
   use FizzbuzzPhoenixWeb, :channel
 
+  def join("save:*", _payload, socket) do
+    {:ok, socket}
+  end
 
-  def handle_in("save_favoutite", %{"number" => number}, socket) do
+  def handle_in("save_favourite", %{"number" => number}, socket) do
 
     current_element = FizzBuzz.FizzBuzzElement |> FizzBuzz.Repo.get_by(number: number)
     updated_element = %FizzBuzz.FizzBuzzElement{}

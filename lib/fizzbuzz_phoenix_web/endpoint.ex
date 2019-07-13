@@ -43,4 +43,6 @@ defmodule FizzbuzzPhoenixWeb.Endpoint do
     signing_salt: "NR2g0oZP"
 
   plug FizzbuzzPhoenixWeb.Router
+
+
 end
