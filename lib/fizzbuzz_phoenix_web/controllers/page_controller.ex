@@ -5,18 +5,26 @@ defmodule FizzbuzzPhoenixWeb.PageController do
   # 100 items per page
   @page_size 100
   # maximum of  100 000 000 000 items
-  @mex_size 100000000000
+  @max_size 100000000000
   # calculate the number of pages required
-  @pages_nb div(@mex_size, @page_size)
+  @pages_nb div(@max_size, @page_size)
 
-  def index(conn, _params) do
-    current_page = get_page(_params, "page", 1)
+  def index(conn, params) do
+    page_number = get_param_value(params, "page", 1)
+    page_size = get_param_value(params, "page_size", @page_size)
     first_number_of_current_page = 1 + (current_page-1)*@page_size
     last_number_of_current_page = (@page_size-1) + first_number_of_current_page
     sequence = Enum.map(first_number_of_current_page..last_number_of_current_page, &fetch_or_generate_fizzbuzz_element/1)
 
+    page = %Scrivener.Page{
+      entries: sequence,
+      page_number: page_number,
+      page_size: page_size,
+      total_entries: @max_size,
+      total_pages: @pages_nb
+    }
 
-    render(conn, "index.html")
+    render(conn, "index.html", page: page)
   end
 
   defp fetch_or_generate_fizzbuzz_element(number) do
@@ -31,7 +39,7 @@ defmodule FizzbuzzPhoenixWeb.PageController do
 
   end
 
-  defp get_page(params, name, default) do
+  defp get_param_value(params, name, default) do
     %{^name => value} = params
 
     case Integer.parse value do

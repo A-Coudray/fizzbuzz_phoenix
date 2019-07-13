@@ -41,7 +41,8 @@ defmodule FizzbuzzPhoenix.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:ecto_sql, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},
-      {:scrivener_ecto, "~> 2.0"}
+      {:scrivener_ecto, "~> 2.0"},
+      {:scrivener_html, "~> 1.8"}
     ]
   end
 end

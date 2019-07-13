@@ -3,15 +3,30 @@
   <p>A small web application that<br/>implements the FizzBuzz challenge.</p>
 </section>
 
+<%= if @page.page_number > 1 do %>
+    <%= link "Prev Page", to: fizzbuzz_phoenix_path(@conn, :index, page: @page.page_number-1) %>
+<% end %>
+<%= if @page.page_number < total_pages do %>
+    <%= link "Next Page", to: fizzbuzz_phoenix_path(@conn, :index, page: @page.page_number+1) %>
+<% end %>
+
 
 <table class="table table-items table-hover">
   <thead>
     <tr>
-      <th>Value</th>
-      <th>Favorite</th>
+      <th>Initial number</th>
+      <th>FizzBuzz Value</th>
+      <th>Favourite</th>
     </tr>
   </thead>
   <tbody>
+  <%= for item <- @page do %>
+      <tr>
+        <td><%= item.number %></td>
+        <td><%= item.fizz_buzz_value %></td>
+        <td class="favorite" data-id="<%= item.id %>"><%= item.favourited %></td>
+      </tr>
+  <% end %>
   </tbody>
 </table>
 
