@@ -12,7 +12,7 @@ defmodule FizzbuzzPhoenixWeb.PageController do
   def index(conn, _params) do
     current_page = get_page(_params, "page", 1)
     first_number_of_current_page = 1 + (current_page-1)*@page_size
-    last_number_of_current_page = @page_size + first_number_of_current_page
+    last_number_of_current_page = (@page_size-1) + first_number_of_current_page
     sequence = Enum.map(first_number_of_current_page..last_number_of_current_page, &fetch_or_generate_fizzbuzz_element/1)
 
 
