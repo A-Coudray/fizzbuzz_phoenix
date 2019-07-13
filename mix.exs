@@ -19,7 +19,7 @@ defmodule FizzbuzzPhoenix.MixProject do
   def application do
     [
       mod: {FizzbuzzPhoenix.Application, []},
-      extra_applications: [:logger, :runtime_tools, :postgrex, :ecto_sql, :scrivener_ecto, :scrivener_html]
+      extra_applications: [:logger, :runtime_tools, :postgrex, :ecto_sql, :scrivener_html]
     ]
   end
 
@@ -41,7 +41,6 @@ defmodule FizzbuzzPhoenix.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:ecto_sql, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},
-      {:scrivener_ecto, "~> 2.0"},
       {:scrivener_html, "~> 1.8"}
     ]
   end

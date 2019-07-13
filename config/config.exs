@@ -32,7 +32,8 @@ config :fizzbuzz_phoenix,
        ecto_repos: [FizzBuzz.Repo]
 
 config :scrivener_html,
-  routes_helper: FizzbuzzPhoenixWeb.Router.Helpers
+  routes_helper: FizzbuzzPhoenixWeb.Router.Router.Helpers,
+  view_style: :bootstrap
 
 
 # Import environment specific config. This must remain at the bottom
