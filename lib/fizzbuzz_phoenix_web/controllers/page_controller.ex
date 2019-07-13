@@ -32,7 +32,8 @@ defmodule FizzbuzzPhoenixWeb.PageController do
     current_element = FizzBuzz.FizzBuzzElement |> FizzBuzz.Repo.get_by(number: number)
     cond do
       current_element == nil ->
-       FizzBuzz.Repo.insert(%FizzBuzz.FizzBuzzElement{ number: number, fizz_buzz_value: FizzBuzz.fizzbuzz(number), favourited: false})
+        FizzBuzz.Repo.insert(%FizzBuzz.FizzBuzzElement{ number: number, fizz_buzz_value: FizzBuzz.fizzbuzz(number), favourited: false})
+        %FizzBuzz.FizzBuzzElement{ number: number, fizz_buzz_value: FizzBuzz.fizzbuzz(number), favourited: false}
     true ->
       current_element
     end
