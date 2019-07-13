@@ -31,6 +31,11 @@ config :phoenix, :json_library, Jason
 config :fizzbuzz_phoenix,
        ecto_repos: [FizzBuzz.Repo]
 
+config :scrivener_html,
+  routes_helper: FizzbuzzPhoenixWeb.Router.Helpers,
+  view_style: :bootstrap
+
+
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

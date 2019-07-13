@@ -19,7 +19,7 @@ defmodule FizzbuzzPhoenix.MixProject do
   def application do
     [
       mod: {FizzbuzzPhoenix.Application, []},
-      extra_applications: [:logger, :runtime_tools, :postgrex, :ecto_sql]
+      extra_applications: [:logger, :runtime_tools, :postgrex, :ecto_sql, :scrivener_ecto, :scrivener_html]
     ]
   end
 

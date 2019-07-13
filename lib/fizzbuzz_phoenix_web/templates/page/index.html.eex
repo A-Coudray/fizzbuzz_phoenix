@@ -3,13 +3,9 @@
   <p>A small web application that<br/>implements the FizzBuzz challenge.</p>
 </section>
 
-<%= if @page.page_number > 1 do %>
-    <%= link "Prev Page", to: fizzbuzz_phoenix_path(@conn, :index, page: @page.page_number-1) %>
-<% end %>
-<%= if @page.page_number < total_pages do %>
-    <%= link "Next Page", to: fizzbuzz_phoenix_path(@conn, :index, page: @page.page_number+1) %>
-<% end %>
 
+
+<%= pagination_links @page, next: "Next", previous: "Prev" %>
 
 <table class="table table-items table-hover">
   <thead>
@@ -30,3 +26,4 @@
   </tbody>
 </table>
 
+<%= pagination_links @page, next: "Next", previous: "Prev" %>
