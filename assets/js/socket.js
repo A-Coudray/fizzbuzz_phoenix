@@ -63,25 +63,30 @@ channel.join()
 document.querySelector('.table-items').addEventListener('click', event => {
   let number = parseInt(event.target.getAttribute('data-id'))
   if (isNaN(number)) return
-
+      console.log("updated successfully")
   channel
     .push('save_favourite', {number: number})
-    .receive('ok', item => {
-      newRow = createRow(item)
+    .receive("ok", resp => {
+      let newRow = createRow(resp)
       event.target.parentNode.replaceWith(newRow)
+      console.log("Favourite number updated successfully")
     })
 })
 
-function createRow({id, value, favourited}) {
-  tdValue = document.createElement('td')
-  tdValue.textContent = value
+function createRow({number, fizz_buzz_value, favourited}) {
+  let tdValue = document.createElement('td')
+  tdValue.textContent = number
 
-  tdFavourited = document.createElement('td')
+  let tdFizzBuzzValue = document.createElement('td')
+  tdFizzBuzzValue.textContent = fizz_buzz_value
+
+  let tdFavourited = document.createElement('td')
   tdFavourited.textContent = favourited
-  tdFavourited.setAttribute('data-id', id)
+  tdFavourited.setAttribute('data-id', number)
 
-  tr = document.createElement('tr')
+  let tr = document.createElement('tr')
   tr.appendChild(tdValue)
+  tr.appendChild(tdFizzBuzzValue)
   tr.appendChild(tdFavourited)
   return tr
 }
