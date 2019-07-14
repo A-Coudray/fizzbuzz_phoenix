@@ -1,5 +1,5 @@
 defmodule FizzbuzzPhoenixWeb.SaveFavouriteChannel do
-  use FizzbuzzPhoenixWeb, :channel
+  use Phoenix.Channel
 
   def join("save:*", _payload, socket) do
     {:ok, socket}

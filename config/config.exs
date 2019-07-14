@@ -33,7 +33,7 @@ config :fizzbuzz_phoenix,
 
 config :scrivener_html,
   routes_helper: Routes,
-  view_style: :bootstrap
+  view_style: :bootstrap_v4
 
 
 # Import environment specific config. This must remain at the bottom
