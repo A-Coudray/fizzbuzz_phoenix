@@ -20,7 +20,7 @@
       <tr>
         <td><%= item.number %></td>
         <td><%= item.fizz_buzz_value %></td>
-        <td class="favorite" data-id="<%= item.id %>"><%= item.favourited %></td>
+        <td class="favorite" data-id="<%= item.number %>"><%= item.favourited %></td>
       </tr>
   <% end %>
   </tbody>
