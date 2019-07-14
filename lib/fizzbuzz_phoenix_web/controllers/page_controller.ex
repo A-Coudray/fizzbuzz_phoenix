@@ -29,11 +29,13 @@ defmodule FizzbuzzPhoenixWeb.PageController do
 
   defp fetch_or_generate_fizzbuzz_element(number) do
 
-    current_element = FizzBuzz.FizzBuzzElement |> FizzBuzz.Repo.get_by(number: number)
+    str_number = Integer.to_string(number)
+
+    current_element = FizzBuzz.FizzBuzzElement |> FizzBuzz.Repo.get_by(number: str_number)
     cond do
       current_element == nil ->
-        FizzBuzz.Repo.insert(%FizzBuzz.FizzBuzzElement{ number: number, fizz_buzz_value: FizzBuzz.fizzbuzz(number), favourited: false})
-        %FizzBuzz.FizzBuzzElement{ number: number, fizz_buzz_value: FizzBuzz.fizzbuzz(number), favourited: false}
+        FizzBuzz.Repo.insert(%FizzBuzz.FizzBuzzElement{ number: str_number, fizz_buzz_value: FizzBuzz.fizzbuzz(number), favourited: false})
+        %FizzBuzz.FizzBuzzElement{ number: str_number, fizz_buzz_value: FizzBuzz.fizzbuzz(number), favourited: false}
     true ->
       current_element
     end

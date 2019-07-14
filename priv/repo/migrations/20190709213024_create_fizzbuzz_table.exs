@@ -3,7 +3,7 @@ defmodule FizzBuzz.Repo.Migrations.CreateFizzbuzzTable do
 
   def change do
     create table(:fizzBuzzValues) do
-      add :number, :integer
+      add :number, :string
       add :fizz_buzz_value, :string
       add :favourited, :boolean
     end
