@@ -19,8 +19,10 @@ defmodule FizzbuzzPhoenixWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", FizzbuzzPhoenixWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", FizzbuzzPhoenixWeb.Api, as: :api do
+    pipe_through :api
+
+    get "/page", ApiController, :index
+
+  end
 end

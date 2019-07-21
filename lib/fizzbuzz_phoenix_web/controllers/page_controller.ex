@@ -27,7 +27,7 @@ defmodule FizzbuzzPhoenixWeb.PageController do
     render(conn, "index.html", page: page)
   end
 
-  defp fetch_or_generate_fizzbuzz_element(number) do
+  def fetch_or_generate_fizzbuzz_element(number) do
 
     str_number = Integer.to_string(number)
 
@@ -42,7 +42,7 @@ defmodule FizzbuzzPhoenixWeb.PageController do
 
   end
 
-  defp get_param_value(params, name, default) do
+  def get_param_value(params, name, default) do
     %{^name => value} = params
 
     case Integer.parse value do
