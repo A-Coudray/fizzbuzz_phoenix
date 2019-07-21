@@ -23,6 +23,10 @@ To start your the server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
+You can set any number as favourite, by clicking on the favourite value. All the data is persistent and stored in the PostgreSQL DB.
+
+To change the number of values displayed per page, you can add the page_size query param : http://localhost:4000/?page=2&page_size=10
+
 
 ## FizzbuzzPhoenix API Java test client
 
