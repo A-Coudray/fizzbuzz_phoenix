@@ -18,4 +18,26 @@ defmodule FizzbuzzPhoenixWeb.Api.ApiController do
   end
 
 
+  def update(conn, %{"number" => number}) do
+
+    current_element = FizzbuzzPhoenixWeb.PageController.fetch_or_generate_fizzbuzz_element(String.to_integer(number))
+
+    updated_element = %FizzBuzz.FizzBuzzElementStruct{ number:  current_element.number, fizz_buzz_value: current_element.fizz_buzz_value, favourited: true}
+    FizzBuzz.FizzBuzzElement.update_favourite_status(number, true)
+    json(conn, %{data: updated_element})
+
+  end
+
+  def remove(conn, %{"number" => number}) do
+
+    current_element = FizzbuzzPhoenixWeb.PageController.fetch_or_generate_fizzbuzz_element(String.to_integer(number))
+
+    updated_element = %FizzBuzz.FizzBuzzElementStruct{ number:  current_element.number, fizz_buzz_value: current_element.fizz_buzz_value, favourited: false}
+    FizzBuzz.FizzBuzzElement.update_favourite_status(number, false)
+    json(conn, %{data: updated_element})
+
+  end
+
+
+
 end

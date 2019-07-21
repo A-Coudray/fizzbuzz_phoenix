@@ -24,5 +24,9 @@ defmodule FizzbuzzPhoenixWeb.Router do
 
     get "/page", ApiController, :index
 
+    put "/favourite/:number", ApiController, :update
+
+    delete "/favourite/:number", ApiController, :remove
+
   end
 end
