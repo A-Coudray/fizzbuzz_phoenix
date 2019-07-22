@@ -6,6 +6,7 @@ import java.net.URISyntaxException;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
@@ -19,10 +20,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     public static void main( String[] args )
@@ -59,12 +57,18 @@ public class App
 		         .hasArg()
 		         .desc("unset the corresponding element as favourite" )
 		         .build();
+    	
+    	Option help   = Option.builder()
+		         .longOpt("help")
+		         .desc("Display the help" )
+		         .build();
 
 
     	options.addOption(getPage);
     	options.addOption(pageSize);
      	options.addOption(setFav);
      	options.addOption(unsetFav);
+     	options.addOption(help);
     	
         CommandLineParser parser = new DefaultParser();
         try {
@@ -109,6 +113,11 @@ public class App
 					System.err.println( "Exception while calling the fizzbuzz app: " + e.getMessage() );
 				}
             }
+            else if (line.hasOption("help")) {
+            	 HelpFormatter formatter = new HelpFormatter();
+                 formatter.printHelp("FizzBuzz API", options);
+            }
+            
             
             
         }
