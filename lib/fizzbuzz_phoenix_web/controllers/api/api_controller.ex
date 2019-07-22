@@ -5,6 +5,7 @@ defmodule FizzbuzzPhoenixWeb.Api.ApiController do
 
   @page_size 100
 
+  # the api version of the controller, similar function
   def index(conn, params) do
 
     page_number = FizzbuzzPhoenixWeb.PageController.get_param_value(params, "page", 1)
@@ -17,7 +18,7 @@ defmodule FizzbuzzPhoenixWeb.Api.ApiController do
 
   end
 
-
+  # this function is different, as one can set a number to favourite with the API, the values need to be generated or fetched first
   def update(conn, %{"number" => number}) do
 
     current_element = FizzbuzzPhoenixWeb.PageController.fetch_or_generate_fizzbuzz_element(String.to_integer(number))
@@ -27,7 +28,7 @@ defmodule FizzbuzzPhoenixWeb.Api.ApiController do
     json(conn, %{data: updated_element})
 
   end
-
+  # this function is different, as one can unset a number to favourite with the API, the values need to be generated or fetched first
   def remove(conn, %{"number" => number}) do
 
     current_element = FizzbuzzPhoenixWeb.PageController.fetch_or_generate_fizzbuzz_element(String.to_integer(number))

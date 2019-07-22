@@ -6,7 +6,7 @@ The app runs on Phoenix v1.4.9
 
 Pre-requisites
 
-- Elixir 1.9
+- Elixir 1.9 ->  might not work with older versions !
 - Compatible Erlang/OTP version (20 - 22)
 - Bootstrap v4
 - a PostGreSQL server running

@@ -6,6 +6,7 @@ defmodule FizzbuzzPhoenixWeb.SaveFavouriteChannel do
   end
 
 
+  # Channel that handles the favourite feature
   def handle_in("save_favourite", %{"number" => number}, socket) do
 
     current_element = FizzBuzz.FizzBuzzElement |> FizzBuzz.Repo.get_by(number: Integer.to_string(number))

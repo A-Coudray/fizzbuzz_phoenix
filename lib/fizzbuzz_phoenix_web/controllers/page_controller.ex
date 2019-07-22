@@ -27,6 +27,8 @@ defmodule FizzbuzzPhoenixWeb.PageController do
     render(conn, "index.html", page: page)
   end
 
+  #this funtion is used to either create the new elements in db or fetch them
+  #it was done this way for performances reason, generating 100000000000 values at once would be too much
   def fetch_or_generate_fizzbuzz_element(number) do
 
     str_number = Integer.to_string(number)
@@ -42,6 +44,7 @@ defmodule FizzbuzzPhoenixWeb.PageController do
 
   end
 
+  # parse the query params
   def get_param_value(params, name, default) do
     %{^name => value} = params
 
