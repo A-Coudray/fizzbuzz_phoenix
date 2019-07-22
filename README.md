@@ -42,5 +42,6 @@ The available options are as follow :
 - "--get_page $value --page_size $value" : to get a specific page from the FizzBuzz app with a specific size
 - "--favourite $value" : to set a number as favourite
 - "--unset_favourite $value" : to unset a number as favourite
+- "--help" displays the help
 
 Please note that all http requests are done to http://localhost:4000
